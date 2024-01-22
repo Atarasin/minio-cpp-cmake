@@ -16,14 +16,8 @@
 #include "miniocpp/client.h"
 
 int main(int argc, char* argv[]) {
-  std::string host = "http://192.168.0.106:9000";
-  // std::string host = "http://127.0.0.1:9000"; // error:connect to 127.0.0.1 port 9000 failed: Connection refused
-  minio::http::Url url = minio::http::Url::Parse(host);
-
-  std::cout << "url: " << host << ", port: " << url.port << ", host: " << url.host << std::endl;
-
   // Create S3 base URL.
-  minio::s3::BaseUrl base_url(host, false);
+  minio::s3::BaseUrl base_url("http://ip:port", false);
 
   // Create credential provider.
   minio::creds::StaticProvider provider(
@@ -34,7 +28,7 @@ int main(int argc, char* argv[]) {
 
   // Create make bucket arguments.
   minio::s3::MakeBucketArgs args;
-  args.bucket = "xxx";
+  args.bucket = "my-bucket";
 
   // Call make bucket.
   minio::s3::MakeBucketResponse resp = client.MakeBucket(args);
