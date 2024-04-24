@@ -1,5 +1,7 @@
 # 使用minio-cpp踩过的那些坑
 
+注意：目前只能在ubuntu18.04上编译成功，其他系统未测试。比如，centos7上无法编译成功。
+
 1. 去vcpkg化: 去除vcpkg，将minio编译为静态库. 
     简单来说，就是拷贝使用到的vcpkg的include和lib文件夹，然后修改了顶部CMakeLists.txt
 2. 调用GetPresignedObjectUrl遇到的两个问题
