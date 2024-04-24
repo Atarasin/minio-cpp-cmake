@@ -3,10 +3,10 @@
 s3tool
 *~
 libminiocpp.so
-*.a
+# *.a
 *.so
 build/
-*.pc
+# *.pc
 .vs
 CMakeSettings.json
 vcpkg_installed/
